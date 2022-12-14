@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './users/entity/user.entity';
 import { UsersController } from './users/users.controller';
 
 @Module({
@@ -13,7 +14,7 @@ import { UsersController } from './users/users.controller';
       username: process.env.DATABASE_USER,
       password: process.env.DATABASE_PASSWORD,
       database: 'test',
-      entities: [],
+      entities: [User],
       synchronize: true,
       autoLoadEntities: true,
       logging: true,
